@@ -4,129 +4,694 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EricTech Ltd - Electronics & IT Solutions in Kigali, Rwanda</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#2563eb',
-                        secondary: '#1e40af',
-                        accent: '#3b82f6',
-                        ericblue: '#1a56db',
-                        ericred: '#dc2626',
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+        /* Base Styles */
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --ericblue: #1a56db;
+            --ericred: #dc2626;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .section {
+            padding: 4rem 1rem;
+        }
+        
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #4b5563;
+            text-align: center;
+            max-width: 42rem;
+            margin: 0 auto 3rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--ericblue);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1e40af;
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--ericblue);
+            border: 1px solid var(--ericblue);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #f3f4f6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 1rem 0;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 2.5rem;
+        }
+        
+        .nav-links {
+            display: none;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--ericblue);
+        }
+        
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #1f2937;
+            cursor: pointer;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background-color: white;
+            padding: 1rem;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .mobile-menu a:hover {
+            color: var(--ericblue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                              url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
+            color: white;
+            padding: 8rem 1rem;
+            text-align: center;
         }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f9fafb;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-0.3125rem);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            background-color: rgba(26, 86, 219, 0.1);
+            padding: 0.75rem;
+            border-radius: 9999px;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .service-icon i {
+            color: var(--ericblue);
+            font-size: 1.25rem;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+        
+        .service-description {
+            color: #4b5563;
+        }
+        
+        /* Training Section */
+        .training-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 1024px) {
+            .training-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .training-features {
+            margin-top: 1.5rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-icon {
+            background-color: rgba(26, 86, 219, 0.1);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon i {
+            color: var(--ericblue);
+        }
+        
+        .feature-title {
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: 0.25rem;
+        }
+        
+        .feature-description {
+            color: #4b5563;
+            font-size: 0.875rem;
+        }
+        
+        .training-image {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .training-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #f9fafb;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .about-image {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            flex: 1 1 200px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--ericblue);
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-label {
+            color: #4b5563;
+            font-size: 0.875rem;
+        }
+        
+        /* Video Section */
+        .video-wrapper {
+            padding: 2rem 1rem;
+            text-align: center;
+            background-color: #f9fafb;
+        }
+        
+        .video-wrapper video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 0.625rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+        }
+        
+        .video-caption {
+            font-size: 1rem;
+            color: #777;
+            margin-top: 0.625rem;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            background-color: rgba(26, 86, 219, 0.1);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            color: var(--ericblue);
+        }
+        
+        .contact-title {
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-detail {
+            color: #4b5563;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            background-color: #f3f4f6;
+            padding: 0.75rem;
+            border-radius: 9999px;
+            color: #374151;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: #e5e7eb;
+        }
+        
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--ericblue);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+        }
+        
+        .contact-form textarea {
+            min-height: 8rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #111827;
+            color: white;
+            padding: 3rem 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo i {
+            font-size: 1.5rem;
+            color: var(--ericblue);
+            margin-right: 0.5rem;
+        }
+        
+        .footer-logo span {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .footer-description {
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            color: #9ca3af;
+        }
+        
+        .footer-contact-item i {
+            color: var(--ericblue);
+            margin-right: 0.5rem;
+            margin-top: 0.25rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #1f2937;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background-color: var(--ericblue);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #1e40af;
+        }
+        
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 3.75rem;
+            }
         }
     </style>
 </head>
-<body class="font-sans antialiased text-gray-800">
+<body>
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-4">
-    <div class="flex items-center">
-        <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1732790745/logo_vrdtxw.png" alt="EricTech Logo" class="h-10 w-auto">
-        <span class="ml-2 text-xl font-bold text-gray-800"></span>
-    </div>
-</div>
-
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-800 hover:text-ericblue font-medium">Home</a>
-                    <a href="#services" class="text-gray-800 hover:text-ericblue font-medium">Services</a>
-                    <a href="#training" class="text-gray-800 hover:text-ericblue font-medium">Training</a>
-                    <a href="#about" class="text-gray-800 hover:text-ericblue font-medium">About</a>
-                    <a href="#contact" class="text-gray-800 hover:text-ericblue font-medium">Contact</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="menu-btn" class="text-gray-800 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1732790745/logo_vrdtxw.png" alt="EricTech Logo">
             </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-2">
-                <a href="#home" class="block py-2 text-gray-800 hover:text-ericblue">Home</a>
-                <a href="#services" class="block py-2 text-gray-800 hover:text-ericblue">Services</a>
-                <a href="#training" class="block py-2 text-gray-800 hover:text-ericblue">Training</a>
-                <a href="#about" class="block py-2 text-gray-800 hover:text-ericblue">About</a>
-                <a href="#contact" class="block py-2 text-gray-800 hover:text-ericblue">Contact</a>
+            
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#training">Training</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
             </div>
+            
+            <button class="mobile-menu-btn" id="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#training">Training</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg text-white py-32 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">Electronics & IT Solutions in Rwanda</h1>
-            <p class="text-xl md:text-2xl mb-8">Expert repairs, quality training, and reliable technology services in Kigali</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" class="bg-ericblue hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Contact Us</a>
-                <a href="#services" class="bg-white hover:bg-gray-100 text-ericblue font-bold py-3 px-6 rounded-lg transition duration-300">Our Services</a>
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 class="hero-title">Electronics & IT Solutions in Rwanda</h1>
+            <p class="hero-subtitle">Expert repairs, quality training, and reliable technology services in Kigali</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Contact Us</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 px-4 bg-gray-50">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900">Our Services</h2>
-                <div class="w-20 h-1 bg-ericblue mx-auto mt-4"></div>
-                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-                    Comprehensive electronic and IT solutions tailored to your needs
-                </p>
-            </div>
+    <section class="section services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive electronic and IT solutions tailored to your needs</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="services-grid">
                 <!-- Service 1 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden service-card transition duration-300">
-                    <div class="p-6">
-                        <div class="bg-ericblue/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                            <i class="fas fa-tools text-ericblue text-xl"></i>
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Electronic Repairs</h3>
-                        <p class="text-gray-600">
+                        <h3 class="service-title">Electronic Repairs</h3>
+                        <p class="service-description">
                             Professional repair services for all electronic devices including smartphones, laptops, tablets, and home appliances.
                         </p>
                     </div>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden service-card transition duration-300">
-                    <div class="p-6">
-                        <div class="bg-ericblue/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                            <i class="fas fa-network-wired text-ericblue text-xl"></i>
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-network-wired"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">IT Equipment Services</h3>
-                        <p class="text-gray-600">
+                        <h3 class="service-title">IT Equipment Services</h3>
+                        <p class="service-description">
                             Maintenance and support for computers, servers, networking devices, and office IT infrastructure.
                         </p>
                     </div>
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden service-card transition duration-300">
-                    <div class="p-6">
-                        <div class="bg-ericblue/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                            <i class="fas fa-laptop-medical text-ericblue text-xl"></i>
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-medical"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Data Recovery</h3>
-                        <p class="text-gray-600">
+                        <h3 class="service-title">Data Recovery</h3>
+                        <p class="service-description">
                             Expert data recovery services for damaged hard drives, corrupted storage devices, and accidental deletions.
                         </p>
                     </div>
@@ -136,108 +701,99 @@
     </section>
 
     <!-- Training Center Section -->
-    <section id="training" class="py-16 px-4 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900">EricTech Training Center (ECT)</h2>
-                <div class="w-20 h-1 bg-ericblue mx-auto mt-4"></div>
-                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-                    Empowering the next generation of electronics and computer technicians
-                </p>
-            </div>
+    <section class="section" id="training">
+        <div class="container">
+            <h2 class="section-title">EricTech Training Center (ECT)</h2>
+            <p class="section-subtitle">Empowering the next generation of electronics and computer technicians</p>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="training-content">
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Our Training Programs</h3>
-                    <p class="text-lg text-gray-600 mb-6">
+                    <h3 class="section-title" style="text-align: left; font-size: 1.875rem; margin-bottom: 1.5rem;">Our Training Programs</h3>
+                    <p class="section-subtitle" style="text-align: left; margin-bottom: 1.5rem;">
                         ECT offers comprehensive training in electronic and computer technology, providing students with hands-on experience and industry-relevant skills.
                     </p>
                     
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-ericblue/10 p-2 rounded-lg">
-                                <i class="fas fa-check text-ericblue"></i>
+                    <div class="training-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
                             </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-medium text-gray-900">Basic Electronics</h4>
-                                <p class="text-gray-600">Fundamentals of electronic components, circuits, and troubleshooting</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-ericblue/10 p-2 rounded-lg">
-                                <i class="fas fa-check text-ericblue"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-medium text-gray-900">Computer Hardware</h4>
-                                <p class="text-gray-600">PC assembly, maintenance, and repair techniques</p>
+                            <div>
+                                <h4 class="feature-title">Basic Electronics</h4>
+                                <p class="feature-description">Fundamentals of electronic components, circuits, and troubleshooting</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-ericblue/10 p-2 rounded-lg">
-                                <i class="fas fa-check text-ericblue"></i>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
                             </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-medium text-gray-900">Mobile Device Repair</h4>
-                                <p class="text-gray-600">Smartphone and tablet diagnostics and repair</p>
+                            <div>
+                                <h4 class="feature-title">Computer Hardware</h4>
+                                <p class="feature-description">PC assembly, maintenance, and repair techniques</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-ericblue/10 p-2 rounded-lg">
-                                <i class="fas fa-check text-ericblue"></i>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
                             </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-medium text-gray-900">Networking Fundamentals</h4>
-                                <p class="text-gray-600">Basic network setup, configuration, and troubleshooting</p>
+                            <div>
+                                <h4 class="feature-title">Mobile Device Repair</h4>
+                                <p class="feature-description">Smartphone and tablet diagnostics and repair</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="feature-title">Networking Fundamentals</h4>
+                                <p class="feature-description">Basic network setup, configuration, and troubleshooting</p>
                             </div>
                         </div>
                     </div>
                     
-                    <a href="#contact" class="inline-block mt-8 bg-ericblue hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
-                        Enquire About Training
-                    </a>
+                    <a href="#contact" class="btn btn-primary mt-8">Enquire About Training</a>
                 </div>
                 
-                <div class="rounded-xl overflow-hidden shadow-xl">
+                <div class="training-image">
                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
-                         alt="EricTech Training Center" 
-                         class="w-full h-auto object-cover">
+                         alt="EricTech Training Center">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 px-4 bg-gray-50">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="EricTech Ltd Team" 
-                         class="w-full rounded-xl shadow-lg">
+                         alt="EricTech Ltd Team">
                 </div>
-                <div class="order-1 lg:order-2">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">About EricTech Ltd</h2>
-                    <p class="text-lg text-gray-600 mb-6">
+                <div>
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">About EricTech Ltd</h2>
+                    <p class="section-subtitle" style="text-align: left; margin-bottom: 1.5rem;">
                         Founded in Kigali, EricTech Ltd has established itself as a leading provider of electronic repair services and IT solutions in Rwanda. Our commitment to quality service and technical excellence has earned us a reputation for reliability and expertise.
                     </p>
-                    <p class="text-lg text-gray-600 mb-6">
+                    <p class="section-subtitle" style="text-align: left; margin-bottom: 1.5rem;">
                         Through our EricTech Training Center (ECT), we're contributing to Rwanda's growing technology sector by training skilled technicians in electronics and computer technology.
                     </p>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="bg-white shadow-md rounded-lg p-6 flex-1 min-w-[200px]">
-                            <h3 class="text-xl font-semibold text-ericblue mb-2">10+ Years</h3>
-                            <p class="text-gray-600">Industry Experience</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">10+ Years</div>
+                            <div class="stat-label">Industry Experience</div>
                         </div>
-                        <div class="bg-white shadow-md rounded-lg p-6 flex-1 min-w-[200px]">
-                            <h3 class="text-xl font-semibold text-ericblue mb-2">500+</h3>
-                            <p class="text-gray-600">Devices Repaired</p>
+                        <div class="stat-item">
+                            <div class="stat-value">500+</div>
+                            <div class="stat-label">Devices Repaired</div>
                         </div>
-                        <div class="bg-white shadow-md rounded-lg p-6 flex-1 min-w-[200px]">
-                            <h3 class="text-xl font-semibold text-ericblue mb-2">100+</h3>
-                            <p class="text-gray-600">Trained Students</p>
+                        <div class="stat-item">
+                            <div class="stat-value">100+</div>
+                            <div class="stat-label">Trained Students</div>
                         </div>
                     </div>
                 </div>
@@ -245,90 +801,84 @@
         </div>
     </section>
 
-    <div class="video-wrapper text-center">
-            <!-- Video Thumbnail or Embedded Video -->
-            <video id="promoVideo" controls style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
-                <source src="https://res.cloudinary.com/dgbbjnvp7/video/upload/v1732790557/erictech_mkq8dh.mp4" type="video/mp4">
-                <!-- Optional: Add more sources for different formats -->
-                Your browser does not support the video tag.
-            </video>
-            <!-- Caption for Video -->
-            <p style="font-size: 1rem; color: #777; margin-top: 10px;">
-                Click play to learn more about our innovative projects and programs!
-            </p>
-        </div>
+    <!-- Video Section -->
+    <div class="video-wrapper">
+        <video id="promoVideo" controls>
+            <source src="https://res.cloudinary.com/dgbbjnvp7/video/upload/v1732790557/erictech_mkq8dh.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p class="video-caption">
+            Click play to learn more about our innovative projects and programs!
+        </p>
+    </div>
+
     <!-- Contact Section -->
-    <section id="contact" class="py-16 px-4 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900">Contact Us</h2>
-                <div class="w-20 h-1 bg-ericblue mx-auto mt-4"></div>
-                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-                    Reach out for repairs, training enquiries, or business partnerships
-                </p>
-            </div>
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Reach out for repairs, training enquiries, or business partnerships</p>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="contact-grid">
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
+                    <h3 class="section-title" style="text-align: left; font-size: 1.875rem; margin-bottom: 1.5rem;">Get in Touch</h3>
                     
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-ericblue/10 p-3 rounded-lg">
-                                <i class="fas fa-map-marker-alt text-ericblue"></i>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-medium text-gray-900">Location</h4>
-                                <p class="text-gray-600">Kigali, Rwanda</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-ericblue/10 p-3 rounded-lg">
-                                <i class="fas fa-phone-alt text-ericblue"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-medium text-gray-900">Phone</h4>
-                                <p class="text-gray-600">+250 788 833 355</p>
+                            <div>
+                                <h4 class="contact-title">Location</h4>
+                                <p class="contact-detail">Kigali, Rwanda</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-ericblue/10 p-3 rounded-lg">
-                                <i class="fas fa-envelope text-ericblue"></i>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
                             </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-medium text-gray-900">Email</h4>
-                                <p class="text-gray-600">info@erictechrwanda.com</p>
-                                <p class="text-gray-600">support@erictechrwanda.com</p>
-                                <p class="text-gray-600">connect@erictechrwanda.com</p>
+                            <div>
+                                <h4 class="contact-title">Phone</h4>
+                                <p class="contact-detail">+250 788 833 355</p>
                             </div>
                         </div>
                         
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-ericblue/10 p-3 rounded-lg">
-                                <i class="fas fa-globe text-ericblue"></i>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
                             </div>
-                            <div class="ml-4">
-                                <h4 class="text-lg font-medium text-gray-900">Website</h4>
-                                <p class="text-gray-600">www.erictechrwanda.com</p>
+                            <div>
+                                <h4 class="contact-title">Email</h4>
+                                <p class="contact-detail">info@erictechrwanda.com</p>
+                                <p class="contact-detail">support@erictechrwanda.com</p>
+                                <p class="contact-detail">connect@erictechrwanda.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div>
+                                <h4 class="contact-title">Website</h4>
+                                <p class="contact-detail">www.erictechrwanda.com</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="mt-8">
-                        <h4 class="text-lg font-medium text-gray-900 mb-4">Follow Us</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full text-gray-700">
+                    <div>
+                        <h4 class="contact-title">Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="#" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full text-gray-700">
+                            <a href="#" class="social-link">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a href="#" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full text-gray-700">
+                            <a href="#" class="social-link">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="#" class="bg-gray-100 hover:bg-gray-200 p-3 rounded-full text-gray-700">
+                            <a href="#" class="social-link">
                                 <i class="fab fa-instagram"></i>
                             </a>
                         </div>
@@ -336,26 +886,27 @@
                 </div>
                 
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
-                    <form class="space-y-4">
+                    <h3 class="section-title" style="text-align: left; font-size: 1.875rem; margin-bottom: 1.5rem;">Send Us a Message</h3>
+                    <form class="contact-form">
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-ericblue focus:border-ericblue">
+                            <label for="name" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Full Name</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-ericblue focus:border-ericblue">
+                            <label for="email" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Email Address</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         
                         <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-ericblue focus:border-ericblue">
+                            <label for="phone" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
                         </div>
                         
                         <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                            <select id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-ericblue focus:border-ericblue">
+                            <label for="subject" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
                                 <option>Repair Service</option>
                                 <option>Training Enquiry</option>
                                 <option>Business Partnership</option>
@@ -364,13 +915,11 @@
                         </div>
                         
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-ericblue focus:border-ericblue"></textarea>
+                            <label for="message" style="display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.5rem;">Message</label>
+                            <textarea id="message" name="message" required></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full bg-ericblue hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
-                            Send Message
-                        </button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -378,57 +927,55 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
                 <div>
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-microchip text-2xl text-ericblue"></i>
-                        <span class="ml-2 text-xl font-bold">EricTech Ltd</span>
+                    <div class="footer-logo">
+                        <i class="fas fa-microchip"></i>
+                        <span>EricTech Ltd</span>
                     </div>
-                    <p class="text-gray-400">
+                    <p class="footer-description">
                         Your trusted partner for electronic repairs, IT solutions, and technical training in Rwanda.
                     </p>
                 </div>
                 
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white">Services</a></li>
-                        <li><a href="#training" class="text-gray-400 hover:text-white">Training Center</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
-                    </ul>
+                    <h3 class="footer-links-title">Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#services">Services</a>
+                        <a href="#training">Training Center</a>
+                        <a href="#about">About Us</a>
+                        <a href="#contact">Contact</a>
+                    </div>
                 </div>
                 
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-ericblue"></i>
-                            <span>Kigali, Rwanda</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 mr-2 text-ericblue"></i>
-                            <span>+250 788 833 355</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-2 text-ericblue"></i>
-                            <span>info@erictechrwanda.com</span>
-                        </li>
-                    </ul>
+                    <h3 class="footer-links-title">Contact Info</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kigali, Rwanda</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+250 788 833 355</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@erictechrwanda.com</span>
+                    </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <div class="footer-bottom">
                 <p>&copy; 2023 EricTech Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="hidden fixed bottom-6 right-6 bg-ericblue text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition duration-300">
+    <button id="back-to-top" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -437,16 +984,16 @@
         // Mobile menu toggle
         document.getElementById('menu-btn').addEventListener('click', function() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         });
 
         // Back to top button
         const backToTopButton = document.getElementById('back-to-top');
         window.addEventListener('scroll', function() {
             if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('hidden');
+                backToTopButton.classList.add('visible');
             } else {
-                backToTopButton.classList.add('hidden');
+                backToTopButton.classList.remove('visible');
             }
         });
         
@@ -470,12 +1017,22 @@
                     
                     // Close mobile menu if open
                     const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
+                    if (mobileMenu.style.display === 'block') {
+                        mobileMenu.style.display = 'none';
                     }
                 }
             });
         });
+
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will contact you soon.');
+                this.reset();
+            });
+        }
     </script>
 </body>
 </html>
