@@ -160,7 +160,7 @@
         /* Hero Section */
         .hero {
             background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                              url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+                              url('https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971974/pic26_ccxc6v.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -622,6 +622,8 @@
                 <a href="#services">Services</a>
                 <a href="#training">Training</a>
                 <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#gallery">Gallery</a>
                 <a href="#contact">Contact</a>
             </div>
             
@@ -635,6 +637,8 @@
             <a href="#services">Services</a>
             <a href="#training">Training</a>
             <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#gallery">Gallery</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -759,7 +763,7 @@
                 </div>
                 
                 <div class="training-image">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                    <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971975/pic23_y46ej2.jpg" 
                          alt="EricTech Training Center">
                 </div>
             </div>
@@ -771,7 +775,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                    <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971965/pic17_bvwnrq.jpg" 
                          alt="EricTech Ltd Team">
                 </div>
                 <div>
@@ -811,6 +815,711 @@
             Click play to learn more about our innovative projects and programs!
         </p>
     </div>
+
+
+
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #333;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .title-underline {
+            width: 70px;
+            height: 4px;
+            background: #3498db;
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Category Navigation */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .category-btn {
+            padding: 8px 20px;
+            background: #ecf0f1;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #34495e;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img-container {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-category {
+            display: inline-block;
+            padding: 3px 10px;
+            background: #e1f0fa;
+            color: #3498db;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+
+        .product-specs {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            min-height: 60px;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .view-btn, .buy-btn {
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn {
+            background: #f1f1f1;
+            color: #3498db;
+            border: 1px solid #3498db;
+        }
+
+        .buy-btn {
+            background: #3498db;
+            color: white;
+            border: 1px solid #3498db;
+        }
+
+        .view-btn:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .buy-btn:hover {
+            background: #2980b9;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="products-section"id="products">
+        <div class="section-header">
+            <h2 class="section-title">Our Products</h2>
+            <div class="title-underline"></div>
+            <p class="section-subtitle">High-quality electronics and IT equipment available at EricTech Ltd in Kigali, Rwanda</p>
+        </div>
+
+        <!-- Category Navigation -->
+        <div class="category-nav">
+            <button class="category-btn active" data-category="all">All Products</button>
+            <button class="category-btn" data-category="cameras">Cameras</button>
+            <button class="category-btn" data-category="laptops">Laptops</button>
+            <button class="category-btn" data-category="desktops">Desktops</button>
+            <button class="category-btn" data-category="printers">Printers</button>
+            <button class="category-btn" data-category="routers">Routers</button>
+            <button class="category-btn" data-category="projectors">Projectors</button>
+            <button class="category-btn" data-category="servers">Servers</button>
+            <button class="category-btn" data-category="tvs">TVs</button>
+            <button class="category-btn" data-category="sounds">Sound Systems</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid">
+    <!-- Cameras -->
+    <div class="product-card" data-category="cameras">
+        <div class="product-img-container">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746973627/device1_pfpejt.jpg" alt="Professional Camera Equipment" class="product-img">
+        </div>
+        <div class="product-info">
+            <span class="product-category">Camera Systems</span>
+            <p class="product-specs">High-resolution imaging with advanced features for photography enthusiasts and professionals</p>
+            <div class="product-actions">
+                <a href="#" class="view-btn">Learn More</a>
+                <a href="#" class="buy-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Laptops -->
+    <div class="product-card" data-category="laptops">
+        <div class="product-img-container">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746973641/device2_q3ni3z.jpg" alt="Premium Laptop" class="product-img">
+        </div>
+        <div class="product-info">
+            <span class="product-category">Business Laptops</span>
+            <p class="product-specs">Powerful computing solutions for work and creativity with premium performance</p>
+            <div class="product-actions">
+                <a href="#" class="view-btn">Learn More</a>
+                <a href="#" class="buy-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktops -->
+    <div class="product-card" data-category="desktops">
+        <div class="product-img-container">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746973657/device3_a7cbkp.jpg" alt="Desktop Workstation" class="product-img">
+        </div>
+        <div class="product-info">
+            <span class="product-category">Desktop Systems</span>
+            <p class="product-specs">Reliable workstations for office and professional computing needs</p>
+            <div class="product-actions">
+                <a href="#" class="view-btn">Learn More</a>
+                <a href="#" class="buy-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Printers -->
+    <div class="product-card" data-category="printers">
+        <div class="product-img-container">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746973669/device4_u1br7t.png" alt="Office Printer" class="product-img">
+        </div>
+        <div class="product-info">
+            <span class="product-category">Printing Solutions</span>
+            <p class="product-specs">Efficient printing technology for home and business environments</p>
+            <div class="product-actions">
+                <a href="#" class="view-btn">Learn More</a>
+                <a href="#" class="buy-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Routers -->
+    <div class="product-card" data-category="routers">
+        <div class="product-img-container">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746973668/device5_rydf7b.jpg" alt="Networking Router" class="product-img">
+        </div>
+        <div class="product-info">
+            <span class="product-category">Networking Equipment</span>
+            <p class="product-specs">Advanced connectivity solutions for seamless internet access</p>
+            <div class="product-actions">
+                <a href="#" class="view-btn">Learn More</a>
+                <a href="#" class="buy-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projectors -->
+    <div class="product-card" data-category="projectors">
+        <div class="product-img-container">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746973669/device6_iiczpu.jpg" alt="Professional Projector" class="product-img">
+        </div>
+        <div class="product-info">
+            <span class="product-category">Projection Systems</span>
+            <p class="product-specs">High-quality visual presentation equipment for business and education</p>
+            <div class="product-actions">
+                <a href="#" class="view-btn">Learn More</a>
+                <a href="#" class="buy-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Servers -->
+    <div class="product-card" data-category="servers">
+        <div class="product-img-container">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746973670/device7_euzvga.jpg" alt="Enterprise Server" class="product-img">
+        </div>
+        <div class="product-info">
+            <span class="product-category">Server Solutions</span>
+            <p class="product-specs">Enterprise-grade server technology for business infrastructure</p>
+            <div class="product-actions">
+                <a href="#" class="view-btn">Learn More</a>
+                <a href="#" class="buy-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TVs -->
+    <div class="product-card" data-category="tvs">
+        <div class="product-img-container">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746973674/device10_wccukk.jpg" alt="Premium Television" class="product-img">
+        </div>
+        <div class="product-info">
+            <span class="product-category">Television Systems</span>
+            <p class="product-specs">State-of-the-art display technology for home entertainment</p>
+            <div class="product-actions">
+                <a href="#" class="view-btn">Learn More</a>
+                <a href="#" class="buy-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sound Systems -->
+    <div class="product-card" data-category="sounds">
+        <div class="product-img-container">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746973671/device9_pzu1re.jpg" alt="Audio System" class="product-img">
+        </div>
+        <div class="product-info">
+            <span class="product-category">Audio Equipment</span>
+            <p class="product-specs">Premium sound systems for immersive audio experiences</p>
+            <div class="product-actions">
+                <a href="#" class="view-btn">Learn More</a>
+                <a href="#" class="buy-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const productCards = document.querySelectorAll('.product-card');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    const category = btn.getAttribute('data-category');
+
+                    // Show/hide products based on category
+                    productCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Gallery Section Styles */
+        .gallery-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #3498db;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: #ecf0f1;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #34495e;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: #3498db;
+            color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .item-info {
+            padding: 15px;
+        }
+        
+        .item-info h3 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+        
+        .item-info p {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .item-category {
+            display: inline-block;
+            padding: 3px 10px;
+            background: #e1f0fa;
+            color: #3498db;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .view-more {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+
+<body>
+    <section class="gallery-section" id="gallery">
+    <h2 class="section-title">Our Journey</h2>
+    <p class="section-subtitle">Documenting EricTech's Growth in Rwanda's Technology Sector</p>
+    
+    <div class="gallery-filter">
+        <button class="filter-btn active" data-filter="all">Our Story</button>
+        <button class="filter-btn" data-filter="workshop">Repair Workshop</button>
+        <button class="filter-btn" data-filter="milestones">Key Milestones</button>
+        <button class="filter-btn" data-filter="training">Training Legacy</button>
+        <button class="filter-btn" data-filter="facility">Our Home</button>
+    </div>
+    
+    <div class="gallery-grid">
+        <!-- Workshop History -->
+        <div class="gallery-item workshop">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971975/pic23_y46ej2.jpg" alt="Early days of our TV repair service">
+            <div class="item-info">
+                <span class="item-category">Workshop Heritage</span>
+                <h3>Where It All Began</h3>
+                <p>Our first TV repair station that started EricTech's service legacy</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item workshop">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971973/pic22_jgmn7a.jpg" alt="Phone repair in progress">
+            <div class="item-info">
+                <span class="item-category">Workshop Heritage</span>
+                <h3>Precision Repairs</h3>
+                <p>Maintaining our commitment to quality device restoration since 2015</p>
+            </div>
+        </div>
+        
+        <!-- Milestones -->
+        <div class="gallery-item milestones">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971973/pic20_eh9u9c.jpg" alt="Networking equipment installation">
+            <div class="item-info">
+                <span class="item-category">Key Milestones</span>
+                <h3>Expanding Our Expertise</h3>
+                <p>Our first major networking project that grew our IT solutions division</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item milestones">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971973/pic19_yyc1yw.jpg" alt="Office setup">
+            <div class="item-info">
+                <span class="item-category">Key Milestones</span>
+                <h3>Corporate Partnerships</h3>
+                <p>Delivering complete office technology solutions to Kigali businesses</p>
+            </div>
+        </div>
+        
+        <!-- Training Legacy -->
+        <div class="gallery-item training">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971973/pic21_zyzqcu.jpg" alt="Training session">
+            <div class="item-info">
+                <span class="item-category">Training Legacy</span>
+                <h3>First ECT Class</h3>
+                <p>Launching our Electronics and Computer Technology training program</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item training">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971973/pic18_nu9o1o.jpg" alt="Electronics course">
+            <div class="item-info">
+                <span class="item-category">Training Legacy</span>
+                <h3>Hands-On Learning</h3>
+                <p>Our practical approach that has trained Rwanda's next tech generation</p>
+            </div>
+        </div>
+        
+        <!-- Facility -->
+        <div class="gallery-item facility">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971965/pic17_bvwnrq.jpg" alt="EricTech facility">
+            <div class="item-info">
+                <span class="item-category">Our Home</span>
+                <h3>Headquarters</h3>
+                <p>The building that houses our growing team and operations</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item workshop">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971963/pic8_covljt.jpg" alt="Tablet repair">
+            <div class="item-info">
+                <span class="item-category">Workshop Heritage</span>
+                <h3>Adapting to New Technology</h3>
+                <p>Expanding our repair services to meet evolving device trends</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item training">
+            <img src="https://res.cloudinary.com/dgbbjnvp7/image/upload/v1746971963/pic10_cnpeug.jpg" alt="Computer training">
+            <div class="item-info">
+                <span class="item-category">Training Legacy</span>
+                <h3>Building IT Capacity</h3>
+                <p>Graduates from our programs now working in Rwanda's tech sector</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="view-more">
+        <button class="btn-primary">Explore Our Full History</button>
+    </div>
+</section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'block';
+                        } else {
+                            if (item.classList.contains(filterValue)) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+
 
     <!-- Contact Section -->
     <section class="section" id="contact">
